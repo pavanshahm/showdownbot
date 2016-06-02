@@ -3,8 +3,11 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <cmath>
 
 #include "Type.h"
+#include "Attack.h"
+#include "Pokemon.h"
 using std::string;
 using std::vector;
 using std::ifstream;
@@ -15,18 +18,7 @@ using std::ifstream;
 
 
 //Objects:
-//Pokemon Object:
-class Pokemon { 
-public:
-	Pokemon() : name("NULL"), firstType("NULL"), secondType("NULL"){}
-	Pokemon(string name_in, string type1_in, string type2_in) 
-		: name(name_in), firstType(type1_in), secondType(type2_in) {}
 
-private: //Add all necessary info here. Will devolve into subclasses depending on ability, etc.
-	string name;
-	Type firstType;
-	Type secondType; //will be the same if MonoType
-};
 //End Goal for Pokemon Object: Will have 12 of them in battle that will correspond to the 12 mons on the field
 //Interactions will occur between these things, growing more complex as AI grows.
 //Need to actively track living Pokemon, and data associated with them.
@@ -38,11 +30,27 @@ int main() {
 	parsePokedex(pokedex);
 	Type dark("Dark");
 	Type fighting("Fighting");
-	Type psychic("Psychic");
+	Type psy("Psychic");
 	assert(dark.isWeakTo(fighting));
-	assert(dark.resists(psychic));
-	assert(dark.isImmuneTo(psychic));
-	assert(fighting.isWeakTo(psychic));
+	assert(dark.resists(psy));
+	assert(dark.isImmuneTo(psy));
+	assert(fighting.isWeakTo(psy));
+	assert(!(fighting == dark));
+
+
+	Attack psychic("Psychic", psy);
+	assert(pokedex[0].getName() == "Bulbasaur");
+	assert(abs(pokedex[0].attackEffectiveness(psychic) - 2.0) < 0.001);
+	assert(pokedex[514].getName() == "Croagunk");
+	assert(abs(pokedex[514].attackEffectiveness(psychic) - 4.0) < 0.001);
+	assert(pokedex[291].getName() == "Poochyena");
+	assert(abs(pokedex[291].attackEffectiveness(psychic)) < 0.001);
+	assert(pokedex[287].getName() == "Mudkip");
+	assert(abs(pokedex[287].attackEffectiveness(psychic) - 1.0) < 0.001);
+	assert(pokedex[728].getName() == "Cobalion");
+	assert(abs(pokedex[728].attackEffectiveness(psychic) - 1.0) < 0.001);
+	assert(pokedex[422].getName() == "Metagross");
+	assert(abs(pokedex[422].attackEffectiveness(psychic) - 0.25) < 0.001);
 	return 0;
 }
 

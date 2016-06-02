@@ -22,6 +22,8 @@ public:
 	bool isWeakTo(Type attackType);
 	bool resists(Type attackType);
 	bool isImmuneTo(Type attackType);
+	double attackScale(Type attackType);
+	bool operator==(const Type &otherType);
 
 private:
 	static const double typechart[18][18];
@@ -126,5 +128,13 @@ bool Type::resists(Type attackType) {
 bool Type::isImmuneTo(Type attackType) {
 	return typechart[attackType.val][val] == 0;
 }
+
+double Type::attackScale(Type attackType) {
+	return typechart[attackType.val][val];
+}
+bool Type::operator==( const Type &otherType) {
+	return val == otherType.val;
+}
+
 
 #endif // !TYPE_H

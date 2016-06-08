@@ -5,9 +5,9 @@
 #include <cassert>
 #include <cmath>
 
-#include "Type.h"
-#include "Attack.h"
-#include "Pokemon.h"
+#include "AI/Type.h"
+#include "AI/Attack.h"
+#include "AI/Pokemon.h"
 #include "Decision.h"
 using std::string;
 using std::vector;

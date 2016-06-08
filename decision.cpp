@@ -99,6 +99,6 @@ void Decision::parsePokedex(vector<Pokemon> &pokedex) {
 	return;
 }
 
-std::string Decision::makeDecision(std::string info){
-	return 'a'
+int Decision::makeDecision(std::string info){
+	return 1;
 }

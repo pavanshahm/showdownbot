@@ -8,6 +8,7 @@
 #include "Type.h"
 #include "Attack.h"
 #include "Pokemon.h"
+#include "Decision.h"
 using std::string;
 using std::vector;
 using std::ifstream;
@@ -23,10 +24,9 @@ using std::ifstream;
 //Interactions will occur between these things, growing more complex as AI grows.
 //Need to actively track living Pokemon, and data associated with them.
 //Testing Parsing of pokedex.js below
-void parsePokedex(vector<Pokemon> &pokedex);
 
-int main() {
-	vector<Pokemon> pokedex; 
+
+Decision::Decision() {
 	parsePokedex(pokedex);
 	Type dark("Dark");
 	Type fighting("Fighting");
@@ -54,7 +54,7 @@ int main() {
 	return 0;
 }
 
-void parsePokedex(vector<Pokemon> &pokedex) {
+void Decision::parsePokedex(vector<Pokemon> &pokedex) {
 	ifstream pin;
 	pin.open("pokedex.js");
 	string junk;

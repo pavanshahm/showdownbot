@@ -11,5 +11,5 @@ class decision{
 		vector<Pokemon> pokedex; 
 	public:
 		decision();
-		makeDecision(std::string info);
+		int makeDecision(std::string info);
 }

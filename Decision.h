@@ -1,12 +1,13 @@
-#ifndef DECISION
-#define DECISION
+#ifndef DECISION_H
+#define DECISION_H
+#pragma once
 
 #include <vector>
 #include <string>
 
-#include "AI/Type.h"
-#include "AI/Attack.h"
-#include "AI/Pokemon.h"
+#include "AI\Attack.h"
+#include "AI\Type.h"
+#include "AI\Pokemon.h"
 
 
 

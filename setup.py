@@ -8,7 +8,8 @@ from distutils.core import setup, Extension
 
 
 interface_module = Extension('_interface',
-                           sources=['interface_wrap.cxx', 'Decision.cpp'],
+                           sources=['interface_wrap.cxx', 'Decision.cpp', 'AI\Type.cpp', 
+						   'AI\Pokemon.cpp'],
 						   swig_opts = ['c++'],
                            )
 

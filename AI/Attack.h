@@ -1,5 +1,6 @@
 #ifndef ATTACK_H
 #define ATTACK_H
+#pragma once
 
 #include <string>
 #include "Type.h"

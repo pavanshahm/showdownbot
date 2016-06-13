@@ -8,6 +8,7 @@
 #include "AI/Type.h"
 #include "AI/Attack.h"
 #include "AI/Pokemon.h"
+
 #include "Decision.h"
 using std::string;
 using std::vector;
@@ -51,7 +52,6 @@ Decision::Decision() {
 	assert(abs(pokedex[728].attackEffectiveness(psychic) - 1.0) < 0.001);
 	assert(pokedex[422].getName() == "Metagross");
 	assert(abs(pokedex[422].attackEffectiveness(psychic) - 0.25) < 0.001);
-	return 0;
 }
 
 void Decision::parsePokedex(vector<Pokemon> &pokedex) {

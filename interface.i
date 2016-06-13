@@ -3,20 +3,17 @@
 %module interface
 %{
 #define SWIG_FILE_WITH_INIT
+#define pascal
+
 #include "Decision.h"
-#include "AI/Type.h"
-#include "AI/Attack.h"
-#include "AI/Pokemon.h"
-#include <vector>
-#include <string>
 %}
 
-class decision{
+class Decision{
 	private:
 		void parsePokedex(std::vector<Pokemon> &pokedex);
 		std::vector<Pokemon> pokedex; 
 		
 	public:
-		decision();
+		Decision();
 		int makeDecision(std::string info);
 };

@@ -90,26 +90,26 @@ except AttributeError:
     _newclass = 0
 
 
-class decision(_object):
+class Decision(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, decision, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Decision, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, decision, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, Decision, name)
     __repr__ = _swig_repr
 
     def __init__(self):
-        this = _interface.new_decision()
+        this = _interface.new_Decision()
         try:
             self.this.append(this)
         except Exception:
             self.this = this
 
     def makeDecision(self, info):
-        return _interface.decision_makeDecision(self, info)
-    __swig_destroy__ = _interface.delete_decision
+        return _interface.Decision_makeDecision(self, info)
+    __swig_destroy__ = _interface.delete_Decision
     __del__ = lambda self: None
-decision_swigregister = _interface.decision_swigregister
-decision_swigregister(decision)
+Decision_swigregister = _interface.Decision_swigregister
+Decision_swigregister(Decision)
 
 # This file is compatible with both classic and new-style classes.
 

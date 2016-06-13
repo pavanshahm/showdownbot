@@ -9,6 +9,7 @@ from distutils.core import setup, Extension
 
 interface_module = Extension('_interface',
                            sources=['interface_wrap.cxx', 'Decision.cpp'],
+						   swig_opts = ['c++'],
                            )
 
 setup (name = 'interface',

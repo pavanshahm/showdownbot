@@ -15,30 +15,6 @@
 
 #define SWIG_PYTHON_DIRECTOR_NO_VTABLE
 
-
-#ifdef __cplusplus
-/* SwigValueWrapper is described in swig.swg */
-template<typename T> class SwigValueWrapper {
-  struct SwigMovePointer {
-    T *ptr;
-    SwigMovePointer(T *p) : ptr(p) { }
-    ~SwigMovePointer() { delete ptr; }
-    SwigMovePointer& operator=(SwigMovePointer& rhs) { T* oldptr = ptr; ptr = 0; delete oldptr; ptr = rhs.ptr; rhs.ptr = 0; return *this; }
-  } pointer;
-  SwigValueWrapper& operator=(const SwigValueWrapper<T>& rhs);
-  SwigValueWrapper(const SwigValueWrapper<T>& rhs);
-public:
-  SwigValueWrapper() : pointer(0) { }
-  SwigValueWrapper& operator=(const T& t) { SwigMovePointer tmp(new T(t)); pointer = tmp; return *this; }
-  operator T&() const { return *pointer.ptr; }
-  T *operator&() { return pointer.ptr; }
-};
-
-template <typename T> T SwigValueInit() {
-  return T();
-}
-#endif
-
 /* -----------------------------------------------------------------------------
  *  This section contains generic SWIG labels for method/variable
  *  declarations/attributes, and other compiler dependent labels.
@@ -3006,11 +2982,10 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 
 /* -------- TYPES TABLE (BEGIN) -------- */
 
-#define SWIGTYPE_p_Decision swig_types[0]
-#define SWIGTYPE_p_char swig_types[1]
-#define SWIGTYPE_p_std__string swig_types[2]
-static swig_type_info *swig_types[4];
-static swig_module_info swig_module = {swig_types, 3, 0, 0, 0, 0};
+#define SWIGTYPE_p_char swig_types[0]
+#define SWIGTYPE_p_class swig_types[1]
+static swig_type_info *swig_types[3];
+static swig_module_info swig_module = {swig_types, 2, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3038,208 +3013,65 @@ static swig_module_info swig_module = {swig_types, 3, 0, 0, 0, 0};
 #define SWIG_VERSION SWIGVERSION
 
 
-#define SWIG_as_voidptr(a) const_cast< void * >(static_cast< const void * >(a)) 
-#define SWIG_as_voidptrptr(a) ((void)SWIG_as_voidptr(*a),reinterpret_cast< void** >(a)) 
-
-
-#include <stdexcept>
-
-
-namespace swig {
-  class SwigPtr_PyObject {
-  protected:
-    PyObject *_obj;
-
-  public:
-    SwigPtr_PyObject() :_obj(0)
-    {
-    }
-
-    SwigPtr_PyObject(const SwigPtr_PyObject& item) : _obj(item._obj)
-    {
-      SWIG_PYTHON_THREAD_BEGIN_BLOCK;
-      Py_XINCREF(_obj);      
-      SWIG_PYTHON_THREAD_END_BLOCK;
-    }
-    
-    SwigPtr_PyObject(PyObject *obj, bool initial_ref = true) :_obj(obj)
-    {
-      if (initial_ref) {
-        SWIG_PYTHON_THREAD_BEGIN_BLOCK;
-        Py_XINCREF(_obj);
-        SWIG_PYTHON_THREAD_END_BLOCK;
-      }
-    }
-    
-    SwigPtr_PyObject & operator=(const SwigPtr_PyObject& item) 
-    {
-      SWIG_PYTHON_THREAD_BEGIN_BLOCK;
-      Py_XINCREF(item._obj);
-      Py_XDECREF(_obj);
-      _obj = item._obj;
-      SWIG_PYTHON_THREAD_END_BLOCK;
-      return *this;      
-    }
-    
-    ~SwigPtr_PyObject() 
-    {
-      SWIG_PYTHON_THREAD_BEGIN_BLOCK;
-      Py_XDECREF(_obj);
-      SWIG_PYTHON_THREAD_END_BLOCK;
-    }
-    
-    operator PyObject *() const
-    {
-      return _obj;
-    }
-
-    PyObject *operator->() const
-    {
-      return _obj;
-    }
-  };
-}
-
-
-namespace swig {
-  struct SwigVar_PyObject : SwigPtr_PyObject {
-    SwigVar_PyObject(PyObject* obj = 0) : SwigPtr_PyObject(obj, false) { }
-    
-    SwigVar_PyObject & operator = (PyObject* obj)
-    {
-      Py_XDECREF(_obj);
-      _obj = obj;
-      return *this;      
-    }
-  };
-}
+#define SWIG_as_voidptr(a) (void *)((const void *)(a)) 
+#define SWIG_as_voidptrptr(a) ((void)SWIG_as_voidptr(*a),(void**)(a)) 
 
 
 #define SWIG_FILE_WITH_INIT
-#define pascal
-
 #include "Decision.h"
-
-
-SWIGINTERNINLINE PyObject*
-  SWIG_From_int  (int value)
-{
-  return PyInt_FromLong((long) value);
-}
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-SWIGINTERN PyObject *_wrap_new_Decision(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Decision *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)":new_Decision")) SWIG_fail;
-  result = (Decision *)new Decision();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Decision, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Decision_makeDecision(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Decision *arg1 = (Decision *) 0 ;
-  std::string arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  int result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Decision_makeDecision",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Decision, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Decision_makeDecision" "', argument " "1"" of type '" "Decision *""'"); 
-  }
-  arg1 = reinterpret_cast< Decision * >(argp1);
+SWIGINTERN int Swig_var_decision_set(PyObject *_val) {
   {
-    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__string,  0  | 0);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Decision_makeDecision" "', argument " "2"" of type '" "std::string""'"); 
-    }  
-    if (!argp2) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Decision_makeDecision" "', argument " "2"" of type '" "std::string""'");
+    void *argp = 0;
+    int res = SWIG_ConvertPtr(_val, &argp, SWIGTYPE_p_class,  0 );
+    if (!SWIG_IsOK(res)) {
+      SWIG_exception_fail(SWIG_ArgError(res), "in variable '""decision""' of type '""class""'");
+    }
+    if (!argp) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in variable '""decision""' of type '""class""'");
     } else {
-      std::string * temp = reinterpret_cast< std::string * >(argp2);
-      arg2 = *temp;
-      if (SWIG_IsNewObj(res2)) delete temp;
+      decision = *((class *)(argp));
     }
   }
-  result = (int)(arg1)->makeDecision(arg2);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
+  return 0;
 fail:
-  return NULL;
+  return 1;
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_Decision(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Decision *arg1 = (Decision *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
+SWIGINTERN PyObject *Swig_var_decision_get(void) {
+  PyObject *pyobj = 0;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_Decision",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Decision, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Decision" "', argument " "1"" of type '" "Decision *""'"); 
-  }
-  arg1 = reinterpret_cast< Decision * >(argp1);
-  delete arg1;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
+  pyobj = SWIG_NewPointerObj(SWIG_as_voidptr(&decision), SWIGTYPE_p_class,  0 );
+  return pyobj;
 }
 
-
-SWIGINTERN PyObject *Decision_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj;
-  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_Decision, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
 
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
-	 { (char *)"new_Decision", _wrap_new_Decision, METH_VARARGS, NULL},
-	 { (char *)"Decision_makeDecision", _wrap_Decision_makeDecision, METH_VARARGS, NULL},
-	 { (char *)"delete_Decision", _wrap_delete_Decision, METH_VARARGS, NULL},
-	 { (char *)"Decision_swigregister", Decision_swigregister, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
-static swig_type_info _swigt__p_Decision = {"_p_Decision", "Decision *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_class = {"_p_class", "class *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
-  &_swigt__p_Decision,
   &_swigt__p_char,
-  &_swigt__p_std__string,
+  &_swigt__p_class,
 };
 
-static swig_cast_info _swigc__p_Decision[] = {  {&_swigt__p_Decision, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_class[] = {  {&_swigt__p_class, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
-  _swigc__p_Decision,
   _swigc__p_char,
-  _swigc__p_std__string,
+  _swigc__p_class,
 };
 
 
@@ -3934,6 +3766,8 @@ SWIG_init(void) {
   
   SWIG_InstallConstants(d,swig_const_table);
   
+  PyDict_SetItemString(md,(char*)"cvar", SWIG_globals());
+  SWIG_addvarlink(SWIG_globals(),(char*)"decision",Swig_var_decision_get, Swig_var_decision_set);
 #if PY_VERSION_HEX >= 0x03000000
   return m;
 #else

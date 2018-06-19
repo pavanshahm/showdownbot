@@ -1,13 +1,7 @@
-import selenium
-import showdown_ai
-
-def main():
-	driver = webdriver.Chrome()
-	driver.get('play.pokemonshowdown.com')
-	
-
-
-
+import sys
+from Interface import Interface
 
 if __name__ == "__main__":
-    main()
+    application = Interface()
+    application.run()
+    exit(0)
